@@ -11,4 +11,4 @@ def script_links(url) :
     soup = BeautifulSoup(response.text,'html.parser')
     results = []
 
-    car_
+
