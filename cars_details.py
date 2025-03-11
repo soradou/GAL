@@ -11,9 +11,9 @@ def insert_into_database(car_title, car_status, car_specs):
         # Connect to the MySQL database
         connection = mysql.connector.connect(
             host="localhost",
-            user="root",  # Replace with your MySQL username
-            password="",  # Replace with your MySQL password
-            database="globalautolink"  # Your database name
+            user="root",  
+            password="",  
+            database="globalautolink"  
         )
         
         if connection.is_connected():
