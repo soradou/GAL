@@ -168,4 +168,46 @@ function applySearchFilter() {
             document.getElementById("search-minPrice").value = document.getElementById("minPrice").value;
             document.getElementById("search-maxPrice").value = document.getElementById("maxPrice").value;
         }
+        function toggleTheme() {
+            let body = document.body;
+            let themeButton = document.getElementById("theme-toggle");
+        
+            // Appliquer ou enlever la classe dark-mode
+            body.classList.toggle("dark-mode");
+        
+            // Sauvegarder le choix de l'utilisateur
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                themeButton.textContent = "☀️ Mode Clair";
+            } else {
+                localStorage.setItem("theme", "light");
+                themeButton.textContent = "🌙 Mode Sombre";
+            }
+        }
+        
+        // Appliquer le mode sombre au chargement si nécessaire
+        window.onload = function() {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+                document.getElementById("theme-toggle").textContent = "☀️ Mode Clair";
+            }
+        
+            checkAlerts(); // Vérifier les alertes
+            loadCarOptions(); // Charger les voitures pour la comparaison
+        };
+        
+        // Ajouter l'écouteur d'événement pour le bouton
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("theme-toggle").addEventListener("click", toggleTheme);
+        });
+        function checkAlerts() {
+            let alerts = JSON.parse(localStorage.getItem("alerts")) || [];
+            let cars = JSON.parse(localStorage.getItem("cars")) || [];
+        
+            let matches = cars.filter(car => alerts.some(alert => car.brand === alert.brand && car.price <= alert.price));
+            
+            if (matches.length > 0) {
+                alert("Une voiture correspondant à vos critères est disponible !");
+            }
+        }
         
