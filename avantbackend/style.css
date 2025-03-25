@@ -1,0 +1,586 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --main-color: gray;
+    --text-color: #fff;
+    --bg-color: #111;
+    --dark-bg: #111;
+}
+
+body {
+    color: var(--text-color);
+    background: var(--bg-color);
+}
+
+.container {
+    max-width: 1068px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: var(--bg-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.logo span {
+    color: var(--text-color);
+}
+.auto-link {
+    color: var(--main-color) !important; /* Mets la couleur de ton choix */
+    font-weight: bold; /* Facultatif, pour mettre en valeur */
+}
+
+
+.navbar {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar a {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.navbar a:hover,
+.navbar .active {
+    color: var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+}
+
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: block; /* Rendre l'icône visible sur mobile */
+}
+
+/* Ajout de styles pour le menu responsive */
+@media (max-width: 768px) {
+    .navbar {
+        position: absolute;
+        top: 70px; /* Descend légèrement le menu */
+        left: 0;
+        width: 100%;
+        background: var(--bg-color);
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding:  0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-height: 0; /* Cache le menu au départ */
+        overflow: hidden; /* Empêche le débordement du contenu */
+        transition: max-height 0.5s ease-in-out, padding 0.3s ease-in-out;
+    }
+
+    .navbar.active {
+        max-height: 300px; /* Ajuste selon le nombre d’éléments du menu */
+        padding: 10px 0;
+    }
+
+    #menu-icon {
+        display: block;
+        z-index: 1100; /* S'assurer qu'il reste cliquable */
+    }
+}
+
+
+
+.search-box {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: var(--text-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 8px;
+    width: 200px;
+}
+
+.search-box.active {
+    display: block;
+}
+
+/* Home Section */
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('img/fondhome.png') no-repeat center/cover;
+    text-align: center;
+}
+
+.home-text {
+    color: var(--text-color);
+    max-width: 600px;
+}
+
+.home-text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.home-text p {
+    font-size: 1rem;
+    margin: 10px 0 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    font-weight: 500;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #c40000;
+}
+
+/* Cars Section */
+.cars {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.heading h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.car-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.car-item {
+    background: #555;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+}
+
+.car-item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.car-item h3 {
+    font-size: 1.2rem;
+    color: var(--bg-color);
+}
+
+.car-item p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+.car-search {
+    text-align: center;
+    padding: 50px 20px;
+    background: var(--bg-color);
+}
+
+.car-search .heading h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.filter-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filter-container input, .filter-container button {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid var(--main-color);
+    border-radius: 5px;
+}
+
+.filter-container button {
+    background: var(--main-color);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-container button:hover {
+    background: #c40000;
+}
+
+
+select {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: white;
+}
+.car-item:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.search-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.filter-section {
+    width: 250px;
+    padding: 15px;
+    background: var(--main-color);
+    border-radius: 10px;
+}
+
+.filter-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.filter-section input, 
+.filter-section select, 
+.filter-section button {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.filter-section button {
+    background: var(--bg-color);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-section button:hover {
+    background: #c40000;
+}
+
+
+.results-section {
+    flex-grow: 1;
+}
+
+
+.car-info h3 {
+    font-size: 1.2rem;
+    color: var(--bg-color);
+}
+
+.car-info p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+    max-width: 100%;
+}
+
+.site-logo {
+    height: 40px; 
+    max-width: 100%;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.logo-container span {
+    font-size: 1.5rem; 
+    white-space: nowrap; 
+}
+
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column; 
+        align-items: center;
+        text-align: center;
+    }
+
+    .site-logo {
+        height: 50px; 
+        margin-bottom: 5px;
+    }
+
+    .logo-container span {
+        font-size: 1.2rem;
+    }
+}
+
+
+.search-box .filter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: var(--bg-color);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+}
+
+.form-container .btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-container .btn:hover {
+    background: #c40000;
+}
+
+.form-container p {
+    margin-top: 10px;
+}
+
+.form-container a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+.car-details-container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.car-details-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.car-list-container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.my-car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.my-car-item {
+    background: #222;
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.my-car-item:hover {
+    transform: scale(1.05);
+}
+
+.my-car-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.my-car-item h3, .my-car-item p {
+    color: var(--text-color);
+    margin: 5px 0;
+}
+
+.btn-delete {
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.compare-container {
+    text-align: center;
+    margin: 30px auto;
+    max-width: 400px;
+}
+
+.compare-container select, .compare-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+
+.comparison-container {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.comparison-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.comparison-container th, .comparison-container td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.comparison-container th {
+    background-color: #333;
+    color: white;
+}
+
+/* Footer */
+
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: black;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    border-bottom: 1px solid gray;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color:  rgb(62, 62, 62);
+}
+
+.social-icons a {
+    color: white;
+    font-size: 22px;
+    margin: 0 10px;
+}
+
+.social-icons a:hover {
+    color:  rgb(62, 62, 62);
+}
+
+.footer-middle {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: white;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.footer-bottom a:hover {
+    color: rgb(62, 62, 62);
+}
+
+.footer-bottom span {
+    margin-top: 10px;
+    font-size: 12px;
+}

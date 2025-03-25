@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Voitures - GlobeAutoLink</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body onload="displayCars()">
+    <header>
+        <div class="nav container">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <a href="index.html" class="logo">
+                <div class="logo-container">
+                    <img src="img/logo.png" alt="Logo" class="site-logo">
+                    <span class="logo-text">Globe<span class="auto-link">AutoLink</span></span>
+
+                </div>
+            </a>
+            
+            <ul class="navbar" id="navbar">
+                <li><a href="index.html" >Home</a></li>
+                <li><a href="#cars">Cars</a></li>
+                <li><a href="less3years.html">-3 years</a></li>
+                <li><a href="hotsales.html">hot sales</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="login.html" class="active">Login/Signup</a></li>
+            </ul>
+            <i class='bx bx-search' id="search-icon"></i>
+</div>            
+        </div>
+    </header>
+    
+    <div class="car-list-container">
+        <h2>Mes Voitures</h2>
+        <ul id="car-list" class="my-car-list"></ul>
+        <p><a href="add-car.html">Ajouter une nouvelle voiture</a></p>
+    </div>
+
+
+    <!-- Début du Footer -->
+    <footer>
+        <div class="footer-top">
+            <nav>
+                <a href="about.html">ABOUT GAL</a>
+                <a href="index.html">HOME</a>
+            </nav>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61574652478776" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/GlobeAutoLink" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/globeautolink/" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-middle">
+            <img src="img/logo2.png" alt="ROG Logo" class="footer-logo">
+        </div>
+
+        <div class="footer-bottom">
+            <a href="privacypolicy.html" target="_blank">PRIVACY POLICY</a>
+            <span>GLOBE AUTO LINK. ALL RIGHTS RESERVED.</span>
+        </div>
+    </footer>
+    <!-- Fin du Footer -->
+
+    <script src="cars.js"></script>
+</body>
+</html>
